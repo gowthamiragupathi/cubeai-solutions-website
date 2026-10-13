@@ -1,0 +1,208 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  margin: 0;
+  background-color: #FFFFFF;
+  color: #0F172A;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom modern corporate scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F1F5F9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #94A3B8;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2563EB;
+}
+
+/* Corporate Cards & Glassmorphic Surfaces */
+.card-corporate {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 1rem;
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-corporate:hover {
+  border-color: #BFDBFE;
+  box-shadow: 0 14px 34px -4px rgba(37, 99, 235, 0.12);
+  transform: translateY(-3px);
+}
+
+.card-navy {
+  background: #0B1220;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #FFFFFF;
+}
+
+.card-ice {
+  background: #EFF6FF;
+  border: 1px solid #DBEAFE;
+}
+
+/* Gradient typography */
+.text-gradient-blue {
+  background: linear-gradient(135deg, #1D4ED8 0%, #2563EB 50%, #3B82F6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-dark {
+  background: linear-gradient(180deg, #0F172A 0%, #1E293B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Blue Glow utility */
+.glow-blue {
+  filter: drop-shadow(0 0 16px rgba(37, 99, 235, 0.35));
+}
+
+/* Subtle modern mesh & grid */
+.grid-bg-light {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(37, 99, 235, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(37, 99, 235, 0.05) 1px, transparent 1px);
+}
+
+.grid-bg-dark {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+}
+
+/* Dynamic Interactive Cards with Shimmer & Floating */
+.card-interactive {
+  position: relative;
+  overflow: hidden;
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 1.25rem;
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.04), 0 2px 6px -1px rgba(15, 23, 42, 0.02);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-interactive:hover {
+  border-color: #93C5FD;
+  box-shadow: 0 20px 40px -8px rgba(37, 99, 235, 0.14), 0 6px 16px -4px rgba(15, 23, 42, 0.04);
+  transform: translateY(-4px);
+}
+
+.card-interactive::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+  transform: skewX(-20deg);
+  transition: 0.75s ease;
+  pointer-events: none;
+}
+
+.card-interactive:hover::after {
+  left: 150%;
+}
+
+@keyframes float-gentle {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.95); opacity: 0.8; }
+  50% { transform: scale(1.1); opacity: 0.4; }
+  100% { transform: scale(0.95); opacity: 0.8; }
+}
+
+.animate-float-gentle {
+  animation: float-gentle 4s ease-in-out infinite;
+}
+
+.animate-pulse-ring {
+  animation: pulse-ring 3s ease-in-out infinite;
+}
+
+/* Permanent Header Navigation Cleanliness - No Underline Dots or Pseudo-Element Indicators */
+header nav a::before,
+header nav a::after,
+header nav .active-indicator,
+header nav .nav-dot,
+header nav .active-dot,
+header a::before,
+header a::after {
+  display: none !important;
+  content: none !important;
+}
+
+/* =========================================================================
+   CUBEAI SOLUTIONS PERMANENT ALWAYS-LIGHT HEADER
+   Enforces solid white background (#FFFFFF), border 1px solid #DBEAFE,
+   soft shadow 0 6px 24px rgba(37, 99, 235, 0.08), dark navy text (#0F172A),
+   primary blue active states (#2563EB), and immunity to dark themes.
+   ========================================================================= */
+header.header-permanent-light,
+.header-permanent-light {
+  color-scheme: light !important;
+}
+
+.header-permanent-light .navbar-card {
+  background-color: #FFFFFF !important;
+  border: 1px solid #DBEAFE !important;
+  box-shadow: 0 6px 24px rgba(37, 99, 235, 0.08) !important;
+}
+
+.header-permanent-light .announcement-bar {
+  background-color: #FFFFFF !important;
+  border-bottom: 1px solid #DBEAFE !important;
+}
+
+.header-permanent-light .dropdown-panel {
+  background-color: #FFFFFF !important;
+  border: 1px solid #DBEAFE !important;
+  box-shadow: 0 16px 48px rgba(37, 99, 235, 0.14) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+.header-permanent-light .nav-item-active {
+  background-color: #EFF6FF !important;
+  color: #2563EB !important;
+  border-color: #DBEAFE !important;
+}
+
+.header-permanent-light .nav-item-inactive {
+  color: #0F172A !important;
+}
+
+.header-permanent-light .nav-item-inactive:hover {
+  background-color: #F1F5F9 !important;
+  color: #2563EB !important;
+}
+
+
